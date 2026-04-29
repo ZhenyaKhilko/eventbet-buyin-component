@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './TablesControl.module.scss'
 import { parseNumberOrNull } from './utils'
 
@@ -11,15 +11,16 @@ type Props = {
 
 export function TablesControl({ value, onChange, min = 1 }: Props) {
   const [raw, setRaw] = useState(() => String(value))
-
-  const displayed = useMemo(() => {
-    if (raw.trim() === '') return ''
-    return raw
-  }, [raw])
+  useEffect(() => {
+    setRaw(String(value))
+  }, [value])
 
   const commit = (nextRaw: string) => {
     const n = parseNumberOrNull(nextRaw)
-    if (n === null) return
+    if (n === null) {
+      setRaw(String(value))
+      return
+    }
     const intVal = Math.max(min, Math.trunc(n))
     onChange(intVal)
     setRaw(String(intVal))
@@ -49,7 +50,7 @@ export function TablesControl({ value, onChange, min = 1 }: Props) {
         <input
           className={styles.input}
           inputMode="numeric"
-          value={displayed}
+          value={raw}
           onChange={(e) => setRaw(e.target.value.replace(/[^\d]/g, ''))}
           onBlur={() => {
             if (raw.trim() === '') setRaw(String(value))

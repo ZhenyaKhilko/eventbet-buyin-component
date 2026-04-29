@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import styles from './AmountControl.module.scss'
 import { clampNumber, formatMoneyAmount, parseNumberOrNull } from './utils'
 
@@ -12,20 +12,22 @@ type Props = {
 
 export function AmountControl({ value, onChange, min, max, step = 0.5 }: Props) {
   const [raw, setRaw] = useState(() => String(value))
+  useEffect(() => {
+    setRaw(String(value))
+  }, [value])
+
   const pct = useMemo(() => {
     const denom = max - min
     if (denom <= 0) return 0
     return ((value - min) / denom) * 100
   }, [max, min, value])
 
-  const displayed = useMemo(() => {
-    if (raw.trim() === '') return ''
-    return raw
-  }, [raw])
-
   const commit = (nextRaw: string) => {
     const n = parseNumberOrNull(nextRaw)
-    if (n === null) return
+    if (n === null) {
+      setRaw(String(value))
+      return
+    }
     const clamped = clampNumber(n, min, max)
     onChange(clamped)
     setRaw(String(clamped))
@@ -52,7 +54,7 @@ export function AmountControl({ value, onChange, min, max, step = 0.5 }: Props) 
           <input
             className={styles.input}
             inputMode="decimal"
-            value={displayed}
+            value={raw}
             onChange={(e) => {
               const nextRaw = e.target.value
               const prevRaw = raw
