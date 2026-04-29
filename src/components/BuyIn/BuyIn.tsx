@@ -69,7 +69,11 @@ export function BuyIn() {
           <div className={styles.bottomStack}>
             <AmountControl value={amount} onChange={setAmount} min={AMOUNT_MIN} max={AMOUNT_MAX} step={0.5} />
 
-            <button type="button" className={`${styles.btn} ${styles.btnSecondary}`} style={{ width: 336 }}>
+            <button
+              type="button"
+              className={`${styles.btn} ${styles.btnSecondary} ${styles.btnAutoBuyIn}`}
+              style={{ width: 336 }}
+            >
               Auto Buy-In and Auto Rebuy
             </button>
 

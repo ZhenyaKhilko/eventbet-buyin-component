@@ -15,7 +15,7 @@ export function MoneyTypeToggle({ value, onChange }: Props) {
           <span className={styles.radioText}>Use real money</span>
         </button>
 
-        <button type="button" className={styles.radio} onClick={() => onChange('cash')}>
+        <button type="button" className={`${styles.radio} ${styles.radioNoPadLeft}`} onClick={() => onChange('cash')}>
           <span className={value === 'cash' ? `${styles.dot} ${styles.dotActive}` : styles.dot} aria-hidden="true" />
           <span className={styles.radioText}>Use cash money</span>
         </button>
