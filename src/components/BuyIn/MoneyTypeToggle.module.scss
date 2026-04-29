@@ -1,0 +1,59 @@
+.root {
+  width: 336px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.radios {
+  display: flex;
+  gap: 16px;
+  width: 336px;
+}
+
+.radio {
+  width: 160px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 12px;
+  background: transparent;
+  border: 0;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.radioText {
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  box-sizing: border-box;
+  border: 1px solid #ffffff;
+  opacity: 0.3;
+  position: relative;
+}
+
+.dotActive {
+  opacity: 1;
+  border: 2px solid var(--primary);
+}
+
+.dotActive::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--primary);
+}
+
+

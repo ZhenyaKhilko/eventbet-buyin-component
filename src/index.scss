@@ -1,0 +1,45 @@
+:root {
+  --dialog-bg: #1d1e22;
+  --inside-bg: #1a1b1f;
+  --surface-2: #232429;
+
+  --text: #ffffff;
+  --text-dim: rgba(255, 255, 255, 0.7);
+  --text-dimmer: rgba(255, 255, 255, 0.5);
+
+  --border: rgba(255, 255, 255, 0.15);
+  --border-30: rgba(255, 255, 255, 0.3);
+
+  --primary: #18a748;
+  --cash: #ffca61;
+
+  --shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+
+  font-family: 'Roboto Condensed', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: #6c6c6c;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100svh;
+  display: block;
+}
+
+button,
+input {
+  font: inherit;
+}
+

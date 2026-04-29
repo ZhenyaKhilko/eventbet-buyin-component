@@ -1,0 +1,122 @@
+.root {
+  width: 336px;
+  display: grid;
+  grid-template-columns: 90px 140px 90px;
+  gap: 8px;
+  align-items: center;
+}
+
+.btn {
+  width: 90px;
+  height: 40px;
+  border-radius: 4px;
+  border: 0;
+  background: #585f6c;
+  color: #ffffff;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  position: relative;
+  isolation: isolate;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 4px;
+    background: radial-gradient(50% 53.75% at 50% 0%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.05) 100%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 4px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.4) 100%);
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+.btnDisabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.iconMinus,
+.iconPlus {
+  width: 14px;
+  height: 14px;
+  position: relative;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.iconMinus::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 6px;
+  height: 2px;
+  background: #fff;
+  border-radius: 1px;
+}
+
+.iconPlus::before,
+.iconPlus::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 6px;
+  height: 2px;
+  background: #fff;
+  border-radius: 1px;
+}
+
+.iconPlus::after {
+  transform: rotate(90deg);
+}
+
+.inputWrap {
+  position: relative;
+  width: 140px;
+  height: 40px;
+  background: var(--inside-bg);
+  border-radius: 4px;
+}
+
+.label {
+  position: absolute;
+  left: 8px;
+  top: -8px;
+  height: 14px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 4px;
+  background: var(--dialog-bg);
+  color: var(--text-dimmer);
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.input {
+  width: 140px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  color: #ffffff;
+  padding: 0 12px;
+  outline: none;
+  text-align: left;
+}
+
