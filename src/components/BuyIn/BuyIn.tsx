@@ -85,7 +85,9 @@ export function BuyIn() {
             <button
               type="button"
               className={`${styles.btn} ${styles.btnPrimary}`}
-              onClick={() => alert(`amount: ${amount}\nmoneyType: ${moneyType}\nnumberOfTables: ${tables}`)}
+              onClick={() =>
+                alert(`Amount: ${amount}\nMoney type: ${moneyType}\nNumber of tables: ${tables}`)
+              }
             >
               Ok
             </button>
